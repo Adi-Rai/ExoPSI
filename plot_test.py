@@ -118,12 +118,12 @@ def calc_ESI(params, upper_lims=None, lower_lims=None,ref_val=None,int_param = N
 #PLOTTING FUNCTIONS
 #1.Plot Interior vs Surface ESI
 def plot1(df):  
-    sample = random.sample(sorted(df['ESI_Global']),200)
-    data_x = df['ESI_Interior'].head(200)
-    data_y = df['ESI_Surface'].head(200)
+    #sample = random.sample(sorted(df['ESI_Global']),200)
+    data_x = df['ESI_Interior']
+    data_y = df['ESI_Surface']
     
     fig,ax = plt.subplots(1)
-    scatter = ax.scatter(data_x, data_y, cmap="viridis", c=sample)
+    scatter = ax.scatter(data_x, data_y, cmap="viridis")
     plt.xlabel("ESI_Interior")
     plt.ylabel("ESI_Surface")
     plt.title("Interior VS Surface ESI")
@@ -172,7 +172,7 @@ def plot1(df):
 
 
 params = ['radius', 'density']
-df = pd.read_csv(r"C:\Users\raiad\Downloads\Rock NESI.csv") 
+df = pd.read_csv(r"Test Dataset.xlsx") 
 upper_lims=[1.9, 1.5,1.4,323]
 lower_lims = [0.5, 0.7,0.4,273]
 ref_val = [1,1,1,288]
