@@ -1,6 +1,7 @@
-#Importing the library and initializing the class
+#Importing the libraries
 from ExoPSI import exopsi
 import pandas as pd
+#Initializing the class
 exopsi = exopsi()
 
 #Loading the dataset
@@ -14,7 +15,10 @@ ref_val = [1,1,1,288]
 weights = exopsi.calc_weight(ref_val,upper_lims,lower_lims)
 
 #PSI Calculation
-PSI_data = exopsi.calc_psi(df.iloc[:,[5,6,7,9]],upper_lims,lower_lims,ref_val,0.8,surf_param=['P. Esc Vel (EU)','P. Ts Mean (K)'],int_param=['P. Radius (EU)','P. Density (EU)'],p_index=df.loc[:,'P. Name'])
+PSI_data = exopsi.calc_psi(df.iloc[:,[5,6,7,9]],upper_lims,lower_lims,ref_val,0.8,
+                           surf_param=['P. Esc Vel (EU)','P. Ts Mean (K)'],
+                           int_param=['P. Radius (EU)','P. Density (EU)'],
+                           p_index=df.loc[:,'P. Name'])
 print(PSI_data)
 
 #PSI Scale
